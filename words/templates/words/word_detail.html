@@ -31,38 +31,60 @@
         </div>
         <div class="panel-body" style="text-align:center">
             <table class="table table-bordered table-hover table-condensed">
-                <tr>
-                    <th>legacy_id</th>
-                    <td>{{ object.legacy_id }}</td>
-                </tr>
-                <tr>
-                    <th>word_type</th>
-                    <td>{{ object.word_type }}</td>
-                </tr>
-                <tr>
-                    <th>orth</th>
-                    <td>{{ object.orth }}</td>
-                </tr>
-                <tr>
-                    <th>pos</th>
-                    <td>{{ object.pos }}</td>
-                </tr>
-                <tr>
-                    <th>morph_type</th>
-                    <td>{{ object.morph_type }}</td>
-                </tr>
-                <tr>
-                    <th>gender</th>
-                    <td>{{ object.gender }}</td>
-                </tr>
-                <tr>
-                    <th>subc</th>
-                    <td>{{ object.subc }}</td>
-                </tr>
-                <tr>
-                    <th>usg</th>
-                    <td>{{ object.usg }}</td>
-                </tr>
+                {% if object.legacy_id %}
+                    <tr>
+                        <th>legacy_id</th>
+                        <td>{{ object.legacy_id }}</td>
+                    </tr>
+                {% endif %}
+                {% if object.word_type %}
+                    <tr>
+                        <th>word_type</th>
+                        <td>{{ object.word_type }}</td>
+                    </tr>
+                {% endif %}
+                {% if object.orth %}
+                    <tr>
+                        <th>orth</th>
+                        <td>{{ object.orth }}</td>
+                    </tr>
+                {% endif %}
+                {% if object.pos %}
+                    <tr>
+                        <th>pos</th>
+                        <td>{{ object.pos }}</td>
+                    </tr>
+                {% endif %}
+                {% if object.language %}
+                    <tr>
+                        <th>language</th>
+                        <td>{{ object.language }}</td>
+                    </tr>
+                {% endif %}
+                {% if object.morph_type %}
+                    <tr>
+                        <th>morph_type</th>
+                        <td>{{ object.morph_type }}</td>
+                    </tr>
+                {% endif %}
+                {% if object.gender %}
+                    <tr>
+                        <th>gender</th>
+                        <td>{{ object.gender }}</td>
+                    </tr>
+                {% endif %}
+                {% if object.subc %}
+                    <tr>
+                        <th>subc</th>
+                        <td>{{ object.subc }}</td>
+                    </tr>
+                {% endif %}
+                {% if object.usg %}
+                    <tr>
+                        <th>usg</th>
+                        <td>{{ object.usg }}</td>
+                    </tr>
+                {% endif %}
                 <tr>
                     <th>arguments</th>
                     <td>{{ object.arguments }}</td>
