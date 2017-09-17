@@ -67,30 +67,68 @@
                     <th>arguments</th>
                     <td>{{ object.arguments }}</td>
                 </tr>
+                {% if object.has_sense.all %}
+                    <tr>
+                        <th>has_sense</th>
+                        <td>
+                            {% for x in object.has_sense.all %}
+                                <a href="{% url 'words:word_detail' pk=x.id %}">{{ x }}</a> <br/>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endif %}
+                {% if object.is_sense.all %}
                 <tr>
-                    <th>has_form</th>
+                    <th>is_sense</th>
                     <td>
-                        {% for x in object.has_form.all %}
-                            {{ x }} <br/>
+                        {% for x in object.is_sense.all %}
+                            <a href="{% url 'words:word_detail' pk=x.id %}">{{ x }}</a> <br/>
                         {% endfor %}
                     </td>
                 </tr>
+                {% endif %}
+
+                {% if object.has_form.all %}
+                    <tr>
+                        <th>has_form</th>
+                        <td>
+                            {% for x in object.has_form.all %}
+                                <a href="{% url 'words:word_detail' pk=x.id %}">{{ x }}</a> <br/>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endif %}
+                {% if object.is_form.all %}
                 <tr>
-                    <th>has_sense</th>
+                    <th>is_form</th>
                     <td>
-                        {% for x in object.has_sense.all %}
-                            {{ x }} <br/>
+                        {% for x in object.is_form.all %}
+                            <a href="{% url 'words:word_detail' pk=x.id %}">{{ x }}</a> <br/>
                         {% endfor %}
                     </td>
                 </tr>
+                {% endif %}
+
+                {% if object.has_gram.all %}
+                    <tr>
+                        <th>has_gram</th>
+                        <td>
+                            {% for x in object.has_gram.all %}
+                                <a href="{% url 'words:word_detail' pk=x.id %}">{{ x }}</a> <br/>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endif %}
+                {% if object.is_gram.all %}
                 <tr>
-                    <th>has_gram</th>
+                    <th>is_gram</th>
                     <td>
-                        {% for x in object.has_gram.all %}
-                            {{ x }} <br/>
+                        {% for x in object.is_gram.all %}
+                            <a href="{% url 'words:word_detail' pk=x.id %}">{{ x }}</a> <br/>
                         {% endfor %}
                     </td>
                 </tr>
+                {% endif %}
             </table>
         </div>
     </div>
