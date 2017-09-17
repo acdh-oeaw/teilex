@@ -11,6 +11,11 @@ urlpatterns = [
         name='skoslabel-autocomplete',
     ),
     url(
+        r'^skosconcept-constraint/(?P<scheme>[\w-]+)$',
+        dal_views.SKOSConstraint.as_view(),
+        name='concept-constraint'
+    ),
+    url(
         r'^skosconceptscheme-autocomplete/$', dal_views.SkosConceptSchemeAC.as_view(
             model=SkosConceptScheme,
             create_field='dc_title',),

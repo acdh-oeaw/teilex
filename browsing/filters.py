@@ -1,4 +1,5 @@
 import django_filters
+from django.core.urlresolvers import reverse
 from dal import autocomplete
 from words.models import Word
 from vocabs.models import SkosConcept
@@ -26,9 +27,17 @@ class WordListFilter(django_filters.FilterSet):
         lookup_expr='icontains',
         label="Transkription"
         )
+    pos = django_filters.ModelMultipleChoiceFilter(
+        queryset=SkosConcept.objects.filter(scheme__dc_title='pos'),
+        help_text=False
+        )
+    # word_type = django_filters.ModelMultipleChoiceFilter(
+    #     queryset=SkosConcept.objects.filter(scheme__dc_title='word type'),
+    #     help_text=False
+    #     )
 
     class Meta:
         model = Word
         fields = [
-            'legacy_id', 'orth'
+            'legacy_id', 'pos'
         ]
