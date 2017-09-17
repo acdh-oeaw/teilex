@@ -1,0 +1,98 @@
+{% extends "webpage/base.html" %}
+{% load staticfiles %}
+{% block title %}Word: {{ object }}{% endblock %}
+{% block scriptHeader %}
+{% endblock %}
+{% block content %}
+<div class="panel panel-body">
+    <div class="panel panel-default procustom-panel-create">
+        <div class="panel-heading procustom-panel-heading">
+            <div class="row">
+                <div class="col-md-2">
+                    {% if object.get_prev %}
+                    <h2>
+                        <a href="{% url 'words:word_detail' pk=object.get_prev %}"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true" title="previous area"></span></a>
+                    </h2>
+                    {% endif %}
+                </div>
+                <div class="col-md-8">
+                    <h1 style="text-align: center;">
+                       {{ object }}
+                    </h1>
+                </div>
+                <div class="col-md-2">
+                {% if object.get_next %}
+                    <h2>
+                        <a href="{% url 'words:word_detail' pk=object.get_next %}" style="float:right"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true" title="next area"></span></a>
+                    </h2>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="panel-body" style="text-align:center">
+            <table class="table table-bordered table-hover table-condensed">
+                <tr>
+                    <th>legacy_id</th>
+                    <td>{{ object.legacy_id }}</td>
+                </tr>
+                <tr>
+                    <th>word_type</th>
+                    <td>{{ object.word_type }}</td>
+                </tr>
+                <tr>
+                    <th>orth</th>
+                    <td>{{ object.orth }}</td>
+                </tr>
+                <tr>
+                    <th>pos</th>
+                    <td>{{ object.pos }}</td>
+                </tr>
+                <tr>
+                    <th>morph_type</th>
+                    <td>{{ object.morph_type }}</td>
+                </tr>
+                <tr>
+                    <th>gender</th>
+                    <td>{{ object.gender }}</td>
+                </tr>
+                <tr>
+                    <th>subc</th>
+                    <td>{{ object.subc }}</td>
+                </tr>
+                <tr>
+                    <th>usg</th>
+                    <td>{{ object.usg }}</td>
+                </tr>
+                <tr>
+                    <th>arguments</th>
+                    <td>{{ object.arguments }}</td>
+                </tr>
+                <tr>
+                    <th>has_form</th>
+                    <td>
+                        {% for x in object.has_form.all %}
+                            {{ x }} <br/>
+                        {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>has_sense</th>
+                    <td>
+                        {% for x in object.has_sense.all %}
+                            {{ x }} <br/>
+                        {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>has_gram</th>
+                    <td>
+                        {% for x in object.has_gram.all %}
+                            {{ x }} <br/>
+                        {% endfor %}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
